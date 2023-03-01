@@ -1,3 +1,16 @@
-.banner{
-    background-color: aqua;
+.caixa{
+    background-color: aquamarine;
+}
+
+.titulo{
+    color: white !important;
+    font-Weight: bold !important;
+}
+.botao{
+    border-color: blueviolet !important ;
+    color:white;
+    background-color: white !important;
+}
+.postagens{
+    background-color: chartreuse;
 }
