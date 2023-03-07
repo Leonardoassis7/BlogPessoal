@@ -2,6 +2,7 @@ import React from "react";
 import './Home.css';
 import {Typography, Grid, Button} from '@material-ui/core';
 import {Box} from '@mui/material';
+import TabPostagem from "../../components/postagens/tabpostagem/TabPostagem";
 
 
 
@@ -15,15 +16,16 @@ function Home() {
                         <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className="titulo">expresse aqui os seus pensamentos e opiniões!</Typography>
                     </Box>
                     <Box display="flex" justifyContent="center">
-                        <Box marginRight={1}>
+                        <Box marginRight={0}>
                         </Box>
                         <Button variant="outlined" className="botao">Ver Postagens</Button>
                     </Box>
                 </Grid>
-                <Grid item xs={6} >
-                    <img src="https://i.imgur.com/H88yIo2.png" alt="" width="500px" height="500px" />
+                <Grid item xs={5} >
+                    <img src="https://i.pinimg.com/564x/2d/c3/47/2dc347272e0c6d3f1b38de1f9643dc18.jpg" alt="" width="350px" height="500px" />
                 </Grid>
                 <Grid xs={12} className='postagens'>
+                    <TabPostagem />
                 </Grid>
             </Grid>
         </>
