@@ -25,12 +25,12 @@ export const buscaId = async(url: any,setDado:any,header:any) => {
     setDado(resposta.data)
 }
 
-export const post = async(url: any,setDado:any,header:any) => {
-    const resposta = await api.get(url,header)
+export const post = async(url: any, dado:any,setDado:any,header:any) => {
+    const resposta = await api.post(url,dado,header)
     setDado(resposta.data)
 }
-export const put = async(url: any,setDado:any,header:any) => {
-    const resposta = await api.get(url,header)
+export const put = async(url: any, dado:any,setDado:any,header:any) => {
+    const resposta = await api.put(url,dado,header)
     setDado(resposta.data)
 }
 
