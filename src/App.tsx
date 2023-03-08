@@ -26,9 +26,9 @@ function App() {
 
         <Route path="/cadastrousuario" element={<CadastroUsuario/>} />
 
-        <Route path="/ListaPostagem" element={<ListaPostagem/>} />
+        <Route path="/posts" element={<ListaPostagem/>} />
 
-        <Route path="/ListaTema" element={<ListaTema/>} />
+        <Route path="/temas" element={<ListaTema/>} />
 
 
 

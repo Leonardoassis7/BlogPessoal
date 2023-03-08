@@ -1,3 +1,6 @@
 .barra{
-    background-color: hsl(325, 100%, 50%) !important;
+    background-color: hwb(325 0% 0%) !important;
+}
+.estilo{
+background-color:  hwb(325 0% 0%)!important;
 }

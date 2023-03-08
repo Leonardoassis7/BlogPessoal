@@ -17,8 +17,8 @@ function Navbar() {
     }
     return (
         <>
-            <AppBar position="static">
-                <Toolbar variant="dense">
+        <AppBar position="static">
+                <Toolbar variant="dense" className='estilo'>
                     <Box className='cursor'>
                         <Typography variant="h5" color="inherit">
                             BlogPessoal
@@ -65,6 +65,8 @@ function Navbar() {
 
                 </Toolbar>
             </AppBar>
+       
+           
         </>
     )
 }
