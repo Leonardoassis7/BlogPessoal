@@ -6,6 +6,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { buscaId, post, put } from '../../../services/Service';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 
 function CadastroTema() {
@@ -22,7 +23,16 @@ function CadastroTema() {
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado")
+            toast(' Você precisa estar logado !', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
             navigate("/login")
     
         }

@@ -3,12 +3,11 @@ import { AppBar, Toolbar, Typography} from '@material-ui/core';
 import {Box} from '@mui/material';
 import { Link } from 'react-router-dom';
 import {useNavigate } from 'react-router-dom'
-
-
 import './Navbar.css'
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { addToken } from '../../../store/tokens/action';
+import { toast } from 'react-toastify';
 
 function Navbar() {
     
@@ -17,9 +16,19 @@ function Navbar() {
         (state) => state.token
     )
     function goLogout(){
-        dispatch(addToken(''));
-        alert("Usuário deslogado")
-       navigate('/login')
+        dispatch(addToken(''))
+        
+ toast(' Usuario Logado !', {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    });
+       navigate('/login');
     }
 
     var navbarComponents;

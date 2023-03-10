@@ -3,12 +3,11 @@ import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem,
 import './CadastroPost.css';
 import {useNavigate, useParams } from 'react-router-dom'
 import Tema from '../../../models/Tema';
-import useLocalStorage from 'react-use-localstorage';
-
 import { busca, buscaId, post, put } from '../../../services/Service';
 import Postagem from '../../../models/Postagem';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 function CadastroPost() {
     let navigate = useNavigate();
@@ -19,7 +18,16 @@ function CadastroPost() {
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado")
+            toast(' Usuario Logado !', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
             navigate("/login")
 
         }
@@ -53,7 +61,7 @@ function CadastroPost() {
     }, [id])
 
     async function getTemas() {
-        await busca("/tema", setTemas, {
+        await busca("/temas", setTemas, {
             headers: {
                 'Authorization': token
             }
@@ -79,23 +87,32 @@ function CadastroPost() {
     }
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-        console.log("tema " + JSON.stringify(tema))
+        console.log("temas " + JSON.stringify(tema))
 
         if (id !== undefined) {
             console.log(tema)
-            put('/temas', tema, setTema, {
+            await put('/postagens', postagem, setPostagem, {
                 headers: {
                     'Authorization': token
                 }
             })
             alert('Tema atualizado com sucesso');
         } else{
-            post('/temas', tema, setTema, {
+            await post('/postagens', postagem, setPostagem, {
                 headers: {
                     'Authorization': token
                 }
             })
-            alert('Tema cadastrado com sucesso');
+            toast(' Usuario Logado !', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
         }
         back() //voltar para temas cadrastrados
 
@@ -119,7 +136,7 @@ function CadastroPost() {
                     <Select
                         labelId="demo-simple-select-helper-label"
                         id="demo-simple-select-helper"
-                        onChange={(e) => buscaId(`/tema/${e.target.value}`, setTema, {
+                        onChange={(e) => buscaId(`/temas/${e.target.value}`, setTema, {
                             headers: {
                                 'Authorization': token
                             }
