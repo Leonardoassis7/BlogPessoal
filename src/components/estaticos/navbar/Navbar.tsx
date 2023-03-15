@@ -4,13 +4,13 @@ import {Box} from '@mui/material';
 import { Link } from 'react-router-dom';
 import {useNavigate } from 'react-router-dom'
 import './Navbar.css'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { addToken } from '../../../store/tokens/action';
 import { toast } from 'react-toastify';
 
 function Navbar() {
-    
+    let dispatch = useDispatch()
     let navigate = useNavigate();
     const token = useSelector<TokenState, TokenState["token"]>(
         (state) => state.token
@@ -96,6 +96,6 @@ function Navbar() {
 
 export default Navbar;
 
-function dispatch(arg0: { type: string; payload: string; }) {
-    throw new Error('Function not implemented.');
-}
+
+
+
